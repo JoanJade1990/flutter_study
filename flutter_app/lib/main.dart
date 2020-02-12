@@ -25,8 +25,13 @@ class HomeScreen extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.all(8.0),
+              child: TextButton(),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
               child: LayoutButton(),
             )
+
           ],
         ),
       ),
@@ -63,6 +68,35 @@ class SelectionButton extends StatelessWidget {
   }
 }
 
+class TextButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return RaisedButton(
+      onPressed: () {
+        _gotoText(context);
+      },
+      child: Text('go to Button'),
+    );
+  }
+
+  // A method that launches the SelectionScreen and awaits the result from
+  // Navigator.pop!
+  _gotoText(BuildContext context) async {
+    // Navigator.push returns a Future that will complete after we call
+    // Navigator.pop on the Selection Screen!
+    final result = await Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => ButtonWidget()),
+    );
+
+    // After the Selection Screen returns a result, hide any previous snackbars
+    // and show the new result!
+    Scaffold.of(context)
+      ..removeCurrentSnackBar()
+      ..showSnackBar(SnackBar(content: Text("$result")));
+  }
+}
+
 class LayoutButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -81,14 +115,14 @@ class LayoutButton extends StatelessWidget {
     // Navigator.pop on the Selection Screen!
     final result = await Navigator.push(
       context,
-      MaterialPageRoute(builder: (context) => ButtonWidget()),
+      MaterialPageRoute(builder: (context) => LayoutWidget()),
     );
 
     // After the Selection Screen returns a result, hide any previous snackbars
     // and show the new result!
-    Scaffold.of(context)
-      ..removeCurrentSnackBar()
-      ..showSnackBar(SnackBar(content: Text("$result")));
+//    Scaffold.of(context)
+//      ..removeCurrentSnackBar()
+//      ..showSnackBar(SnackBar(content: Text("$result")));
   }
 }
 
@@ -300,4 +334,59 @@ class ButtonWidget extends StatelessWidget {
           )),
     );
   }
+}
+
+class LayoutWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return new Scaffold(
+      appBar: new AppBar(
+        title: new Text("Grid"),
+      ),
+      body: new Center(
+        child: buildGrid(),
+      ),
+    );
+  }
+
+  List<Container> _buildGridTileList(int count) {
+    return new List<Container>.generate(
+        count, (int index) => Container(
+          child: Stack(
+            children: <Widget>[
+              Container(
+                  child: new Image.asset(
+                      'images/ic_list.png')),
+              Positioned(
+                //可设置以左，右，顶部，底部为基准
+                  top: 0.0,
+                  right: 0.0,
+                  left: 0.0,
+                  child: Container(
+                    height: 20.0,
+                    color: Colors.black45,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Container(
+                          child: Text("第${index + 1}张图片"),
+                        )
+                      ],
+                    ),
+                  )),
+            ],
+          ),
+        ));
+  }
+
+  Widget buildGrid() {
+    return new GridView.extent(
+        maxCrossAxisExtent: 150.0,
+        padding: const EdgeInsets.all(4.0),
+        mainAxisSpacing: 4.0,
+        crossAxisSpacing: 4.0,
+        children: _buildGridTileList(30));
+  }
+
 }
