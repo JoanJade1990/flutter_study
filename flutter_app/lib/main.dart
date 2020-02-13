@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_app/slide/custom_scroll.dart';
+import 'package:flutter_app/slide/listview.dart';
+import 'package:flutter_app/utils/util.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -12,29 +15,74 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Returning Data Demo'),
+        title: Text('Flutter Study Demo'),
       ),
-      body: Center(
-//          child: SelectionButton()
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: SelectionButton(),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: TextButton(),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: LayoutButton(),
-            )
+      body: ListView(
+        children: <Widget>[
+          getLines("text,button", context: context, ontap: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ButtonWidget(),
+              )
+            );
+          }),
+          getLines("layout", context: context, ontap: (){
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LayoutWidget(),
+                )
+            );
+          }),
+          getLines("跳转", context: context, ontap: (){
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => LayoutWidget(),
+                )
+            );
+          }),
+          getLines("customScroll", context: context, ontap: (){
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => CustomScrollDemoPage(),
+                )
+            );
+          }),
+          getLines("listview", context: context, ontap: (){
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MyListView(),
+                )
+            );
+          }),
 
-          ],
-        ),
+        ],
       ),
+      /*body: Center(
+//          child: SelectionButton()
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SelectionButton(),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: TextButton(),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: LayoutButton(),
+          )
+
+        ],
+      ),
+    ),*/
     );
   }
 }
