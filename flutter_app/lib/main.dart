@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/slide/custom_scroll.dart';
 import 'package:flutter_app/slide/listview.dart';
+import 'package:flutter_app/slide/nested_scroll_main.dart';
 import 'package:flutter_app/utils/util.dart';
 
 void main() {
@@ -56,6 +57,14 @@ class HomeScreen extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => MyListView(),
+                )
+            );
+          }),
+          getLines("Tab+Scroll", context: context, ontap: (){
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => NestedScrollDemoPage(),
                 )
             );
           }),
