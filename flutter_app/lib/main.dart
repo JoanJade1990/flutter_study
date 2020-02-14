@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app/slide/custom_scroll.dart';
 import 'package:flutter_app/slide/listview.dart';
 import 'package:flutter_app/slide/nested_scroll_main.dart';
+import 'package:flutter_app/slide/scroll_controller_main.dart';
 import 'package:flutter_app/utils/util.dart';
 
 void main() {
@@ -40,7 +41,7 @@ class HomeScreen extends StatelessWidget {
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => LayoutWidget(),
+                  builder: (context) => SelectionScreen(),
                 )
             );
           }),
@@ -65,6 +66,14 @@ class HomeScreen extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => NestedScrollDemoPage(),
+                )
+            );
+          }),
+          getLines("ScrollController", context: context, ontap: (){
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ScrollControllerDemoPage(),
                 )
             );
           }),
@@ -94,6 +103,7 @@ class HomeScreen extends StatelessWidget {
     ),*/
     );
   }
+  
 }
 
 class SelectionButton extends StatelessWidget {
@@ -124,7 +134,6 @@ class SelectionButton extends StatelessWidget {
       ..showSnackBar(SnackBar(content: Text("$result")));
   }
 }
-
 class TextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
