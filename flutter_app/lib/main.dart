@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_app/slide/custom_scroll.dart';
 import 'package:flutter_app/slide/listview.dart';
+import 'package:flutter_app/slide/my_scroll_view.dart';
 import 'package:flutter_app/slide/nested_scroll_main.dart';
 import 'package:flutter_app/slide/scroll_controller_main.dart';
 import 'package:flutter_app/utils/util.dart';
@@ -45,35 +46,11 @@ class HomeScreen extends StatelessWidget {
                 )
             );
           }),
-          getLines("customScroll", context: context, ontap: (){
+          getLines("滑动组件的学习", context: context, ontap: (){
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => CustomScrollDemoPage(),
-                )
-            );
-          }),
-          getLines("listview", context: context, ontap: (){
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => MyListView(),
-                )
-            );
-          }),
-          getLines("Tab+Scroll", context: context, ontap: (){
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => NestedScrollDemoPage(),
-                )
-            );
-          }),
-          getLines("ScrollController", context: context, ontap: (){
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) => ScrollControllerDemoPage(),
+                  builder: (context) => MySlideWidget(),
                 )
             );
           }),
