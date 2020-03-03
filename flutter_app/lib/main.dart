@@ -6,6 +6,8 @@ import 'package:flutter_app/slide/nested_scroll_main.dart';
 import 'package:flutter_app/slide/scroll_controller_main.dart';
 import 'package:flutter_app/utils/util.dart';
 
+import 'layout/dialog.dart';
+
 void main() {
   runApp(MaterialApp(
     title: 'Return Data',
@@ -53,6 +55,12 @@ class HomeScreen extends StatelessWidget {
                   builder: (context) => MySlideWidget(),
                 )
             );
+          }),getLines('弹窗和提示', context: context,ontap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => PromptPageDemo(),
+                ));
           }),
 
         ],
