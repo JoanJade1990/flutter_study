@@ -6,7 +6,12 @@ import 'package:flutter_app/slide/nested_scroll_main.dart';
 import 'package:flutter_app/slide/scroll_controller_main.dart';
 import 'package:flutter_app/utils/util.dart';
 
+import 'layout/HlistViewQianTao.dart';
+import 'layout/Vlistview.dart';
 import 'layout/dialog.dart';
+import 'layout/myColumn.dart';
+import 'layout/myGrideView.dart';
+import 'layout/myRow.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -60,6 +65,36 @@ class HomeScreen extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => PromptPageDemo(),
+                ));
+          }),getLines('竖向ListView', context: context,ontap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MyVerticallylistview(),
+                ));
+          }),getLines('横向listView嵌套', context: context,ontap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => Mylist(),
+                ));
+          }),getLines('grideView', context: context,ontap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MyGridView2(),
+                ));
+          }),getLines('Row布局', context: context,ontap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MyRow(),
+                ));
+          }),getLines('Column布局', context: context,ontap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => MyColumn(),
                 ));
           }),
 
