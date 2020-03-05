@@ -6,6 +6,7 @@ import 'package:flutter_app/slide/nested_scroll_main.dart';
 import 'package:flutter_app/slide/scroll_controller_main.dart';
 import 'package:flutter_app/utils/util.dart';
 
+import 'animation/myAnimation.dart';
 import 'layout/HlistViewQianTao.dart';
 import 'layout/Vlistview.dart';
 import 'layout/dialog.dart';
@@ -95,6 +96,12 @@ class HomeScreen extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => MyColumn(),
+                ));
+          }),getLines('animation动画', context: context,ontap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AnimationWidget(),
                 ));
           }),
 
