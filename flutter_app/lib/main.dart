@@ -6,6 +6,7 @@ import 'package:flutter_app/slide/nested_scroll_main.dart';
 import 'package:flutter_app/slide/scroll_controller_main.dart';
 import 'package:flutter_app/utils/util.dart';
 
+import 'animation/animationDemo.dart';
 import 'animation/gestureDemo.dart';
 import 'animation/myAnimation.dart';
 import 'layout/HlistViewQianTao.dart';
@@ -98,19 +99,25 @@ class HomeScreen extends StatelessWidget {
                 MaterialPageRoute(
                   builder: (context) => MyColumn(),
                 ));
-          }),getLines('animation动画', context: context,ontap: () {
+          }), getLines('animation动画', context: context, ontap: () {
             Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => AnimationWidget(),
                 ));
-          }),getLines('手势demo', context: context,ontap: () {
-      Navigator.push(
-          context,
-          MaterialPageRoute(
-            builder: (context) => GestureDemoPage(),
-          ));
-    }),
+          }), getLines('手势demo', context: context, ontap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => GestureDemoPage(),
+                ));
+          }),getLines('动画demo', context: context, ontap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AnimationDemoPage(),
+                ));
+          }),
 
 
     ],
