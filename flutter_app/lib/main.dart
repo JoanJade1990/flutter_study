@@ -9,12 +9,14 @@ import 'package:flutter_app/utils/util.dart';
 import 'animation/animationDemo.dart';
 import 'animation/gestureDemo.dart';
 import 'animation/myAnimation.dart';
+import 'data_persistence/files_io.dart';
 import 'layout/HlistViewQianTao.dart';
 import 'layout/Vlistview.dart';
 import 'layout/dialog.dart';
 import 'layout/myColumn.dart';
 import 'layout/myGrideView.dart';
 import 'layout/myRow.dart';
+import 'special_effect/myEffect.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -116,6 +118,18 @@ class HomeScreen extends StatelessWidget {
                 context,
                 MaterialPageRoute(
                   builder: (context) => AnimationDemoPage(),
+                ));
+          }),getLines('文件io操作', context: context, ontap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => DataPersistenceDemoPage(),
+                ));
+          }),getLines('毛玻璃特效', context: context, ontap: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => FrostedGlassDemo(),
                 ));
           }),
 
