@@ -1,0 +1,14 @@
+import 'package:flutter/material.dart';
+
+class HomePage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    print('build HomePage');
+    return Scaffold(
+      body: Center(
+        child: Text('主页'),
+      ),
+    );
+  }
+}
+
